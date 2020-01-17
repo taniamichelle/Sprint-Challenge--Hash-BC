@@ -14,15 +14,15 @@ def get_indices_of_item_weights(weights, length, limit):
         index = 0
         difference = limit - weight
         value = (index, difference)
-        for weight in weights:
-            hash_table_retrieve(ht, key)
-            if weight != key and weight != value:
-                hash_table_insert(ht, weight, value)
-                index += 1
-            elif weight == ht.value[1]:
-                return (weight[index], ht.value[0])
-        else:
-            return None
+        # key = index
+        ht.get(key)
+        if weight != key and weight != value:
+            hash_table_insert(ht, weight, value)
+            index += 1
+        elif weight == ht.value[1]:
+            return (weight[index], ht.value[0])
+    else:
+        return None
 
 
 get_indices_of_item_weights([1, 2, 3, 4, 5], 5, 7)
