@@ -2,7 +2,7 @@ import hashlib
 import requests
 
 import sys
-
+import json
 from uuid import uuid4
 
 from timeit import default_timer as timer
@@ -26,6 +26,11 @@ def proof_of_work(last_proof):
     proof = 0
     #  TODO: Your code here
 
+    last_hash = json.dumps(last_proof, sort_keys=True)
+
+    while valid_proof(last_hash, last_proof):
+        proof += 1
+
     print("Proof found: " + str(proof) + " in " + str(timer() - start))
     return proof
 
@@ -40,7 +45,9 @@ def valid_proof(last_hash, proof):
     """
 
     # TODO: Your code here!
-    pass
+    guess = f"{last_hash}{proof}".encode()
+    new_hash = hashlib.sha256(guess).hexdigest()
+    return new_hash[-6:] == last_hash[:7]
 
 
 if __name__ == '__main__':
