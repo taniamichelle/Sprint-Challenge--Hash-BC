@@ -12,14 +12,30 @@ class Ticket:
         self.destination = destination
 
 
+tickets = []
+
+
 def reconstruct_trip(tickets, length):
     hashtable = HashTable(length)
-    route = [None] * length
+    route = [None] * length  # Amount of inserted tickets
+
+    key = Ticket.source
+    tickets.get(key="None")
 
     for ticket in tickets:
-        key = ticket.source
-        value = ticket.destination
-        if ticket.source not in hashtable:
-            hash_table_insert(hashtable, ticket.key, ticket.value)
+        # index = route[index]
+        # index = 0
+        key = Ticket.source
+        value = Ticket.destination
+        hashtable_val = hash_table_retrieve(hash_table, key)
+
+        if key == None:
+            hash_table_insert(hashtable, "None", value)
+            route += 1  # Update route
+        elif key == hashtable_val:
+            hash_table_insert(hashtable, key, value)
+            route += 1
+        else:
+            pass
 
     return route
