@@ -8,18 +8,19 @@ from hashtables import (HashTable,
 
 def get_indices_of_item_weights(weights, length, limit):
     ht = HashTable(16)
-    weights = []
+
     for weight in weights:
+        index = len(weights)
         index = 0
-        key = hash_table_insert.key
-        value = hash_table_insert.value
-        value = (weight[index], (limit-weight))
-        if weight != key:
-            if weight != value[1]:
+        difference = limit - weight
+        value = (index, difference)
+        for weight in weights:
+            hash_table_retrieve(ht, key)
+            if weight != key and weight != value:
                 hash_table_insert(ht, weight, value)
                 index += 1
-            elif weight == value[1]:
-                return (weight[index], value[0])
+            elif weight == ht.value[1]:
+                return (weight[index], ht.value[0])
         else:
             return None
 
