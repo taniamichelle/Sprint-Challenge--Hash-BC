@@ -1,8 +1,8 @@
-
-
 # '''
 # Linked List hash table key/value pair
 # '''
+
+
 class LinkedPair:
     def __init__(self, key, value):
         self.key = key
@@ -88,7 +88,9 @@ def hash_table_retrieve(hash_table, key):
     while current_pair is not None:
         if(current_pair.key == key):
             return current_pair.value
-        current_pair = current_pair.next
+        else:
+            current_pair = current_pair.next
+    return None
 
 
 # '''

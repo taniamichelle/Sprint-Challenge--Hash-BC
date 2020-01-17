@@ -1,4 +1,4 @@
-#  Hint:  You may not need all of these.  Remove the unused functions.
+#  You may not need all of these. Remove unused functions.
 from hashtables import (HashTable,
                         hash_table_insert,
                         hash_table_remove,
