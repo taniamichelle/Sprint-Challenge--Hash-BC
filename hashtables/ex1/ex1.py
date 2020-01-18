@@ -7,35 +7,36 @@ from hashtables import (HashTable,
 def get_indices_of_item_weights(weights, length, limit):
     ht = HashTable(16)
 
-    # for weight in weights:
-    #     # index = len(weights)
-    #     index = 0
-    #     value = limit - weight
-    #     ht_val = hash_table_retrieve(ht, weight)
+    # Iterate through `weights` list:
+    for i in weights:
+        # Define `weight` as current weight
+        weight = weights[i]
+        # # Calculate limit-weight + store as `difference`
+        # difference = limit - weight
+        # Define `value` as a tuple: (curr index, difference)
+        # value = (i, difference)
 
-    #     if weight != ht_val:
-    #         hash_table_insert(ht, weight, value)
-    #         index += 1
-    #     elif weight == ht_val:
-    #         unsorted_index = weights.index(ht_val)
-    #         answer = (index, unsorted_index)
-    #         return answer
-    # return None
+        print(f"weight: {weight}")
 
-    for weight in weights:
-        index = len(weights)
-        index = 0
-        difference = limit - weight
-        value = (index, difference)
+        # If weight not in ht:
+        if weight not in ht:
+            # Add key:weight + value:(its_index, difference) to ht
+            hash_table_insert(ht, weight, i)
+        # If weight IS in ht:
+        else:
+            pass
+
+    # Iterate through ht
+    for j in ht:
         ht_val = hash_table_retrieve(ht, weight)
+        # Compare j to limit - j
+        if j == (limit - j):
+            # Retrieve ht_value
+            return ht_val
+        else:
+            pass
 
-        if weight != ht_val[1]:
-            hash_table_insert(ht, weight, value)
-            index += 1
-        elif weight == ht_val[1]:
-            return (weight[index], ht_val[0])
-    else:
-        return None
+    return None
 
 
 get_indices_of_item_weights([1, 2, 3, 4, 5], 5, 7)
