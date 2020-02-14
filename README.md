@@ -26,13 +26,26 @@ During your challenge, you will be pulled aside by a PM for a 5 minute interview
 
 Explain in detail the workings of a dynamic array:
 
+store elements of the same type of data within a contiguous block of memory. able to change size of the array
+
 - What is the runtime complexity to access an array, add or remove from the front, and add or remove from the back?
+
+Access: O(1)
+Add/Remove from front: O(n)
+Add/remove from back: O(1)
+
 - What is the worse case scenario if you try to extend the storage size of a dynamic array?
+  Worst: 0(n) if not enough room (need to create new array and copy over all items)
 
 Explain how blockchain networks remain in consensus:
 
+blocks are objects generally containing the following data: proof, index, list of transactions, timestamp, and hash of prev block. multiple blocks form a blockchain, linked by cryptographic hash of prev block.
+
 - What does a node do if it gets a message from another in the network with a new block?
-- Why can't someone cheat by changing a transaction from an earlier block to give themselves coins?
+
+* Why can't someone cheat by changing a transaction from an earlier block to give themselves coins?
+
+the next transaction's prev hash will not match the prev hash as the prev hash will have changed when accessed again (to change the transaction); therefore, every block after the altered one will need to be changed
 
 ## Project Set Up
 
