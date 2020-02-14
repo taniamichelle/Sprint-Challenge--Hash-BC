@@ -25,14 +25,14 @@ def proof_of_work(last_proof):
     print("Searching for next proof")
     proof = 0
     
-    while valid_proof(last_hash, proof):
+    while valid_proof(last_proof, proof):
         proof += 1
 
     print("Proof found: " + str(proof) + " in " + str(timer() - start))
     return proof
 
 
-def valid_proof(last_hash, proof):
+def valid_proof(last_proof, proof):
     """
     Validates the Proof:  Multi-ouroborus:  Do the last six characters of
     the hash of the last proof match the first six characters of the hash
