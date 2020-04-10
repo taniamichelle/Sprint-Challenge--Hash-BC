@@ -23,7 +23,8 @@ def proof_of_work(last_proof):
     start = timer()
 
     print("Searching for next proof")
-    proof = last_proof + 10000000  # Can start at a higher value or last_proof
+    # proof = 0
+    proof = last_proof + 100  # Can start at a higher value or last_proof
     
     while valid_proof(last_proof, proof) is False:
         proof += 1
